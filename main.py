@@ -32,22 +32,30 @@ class BusinessContact(BaseContact):
 def create_contacts(x, y):
 
     if x == 1:
-        print("Base contact:")
+        base_contacts = {}
         for i in range(0, y):
-            print(fake.name())
-            print(fake.last_name())
-            print(fake.email())
-            print(fake.phone_number())
+            base_contacts[i] = {}
+            base_contacts[i]['name'] = fake.name() 
+            base_contacts[i]['last_name'] = fake.last_name() 
+            base_contacts[i]['email'] = fake.email()
+            base_contacts[i]['phone_number'] = fake.phone_number()
+        
+        print("Base contacts: ")
+        print(base_contacts)
 
     elif x == 2:
-        print("Business contact:")
+        business_contact = {}
         for i in range(0, y):
-            print(fake.name())
-            print(fake.last_name())
-            print(fake.email())
-            print(fake.company())
-            print(fake.job())
-            print(fake.phone_number()) 
+            business_contact[i] = {}
+            business_contact[i]['name'] = fake.name()
+            business_contact[i]['last_name'] = fake.last_name()
+            business_contact[i]['email'] = fake.email()
+            business_contact[i]['company'] = fake.company()
+            business_contact[i]['job'] = fake.job()
+            business_contact[i]['phone_number'] = fake.phone_number()
+        
+        print("Business contacts: ")
+        print(business_contact)
 
 elizabeth = BaseContact(name = 'Elizabeth', last_name = 'T. Stone', email = 'ElizabethStone@dayrep.com', phone_number = '941-456-1600')
 elizabeth = BusinessContact(name = 'Elizabeth', last_name = 'T. Stone', email = 'ElizabethStone@dayrep.com', phone_number = '941-456-1600', company_name = 'Sofa Express', job = 'Gas compressor and gas pumping station operator', business_number = '910-350-8373')
