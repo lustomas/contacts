@@ -38,7 +38,7 @@ def create_contacts(type, count):
 
     elif type == 2:
         for i in range(0, count):
-            contacts.append(BusinessContact(name = fake.name(), last_name = fake.last_name(), email = fake.email(), company_name = fake.company(), job = fake.job(), phone_number = fake.phone_number())
+            contacts.append(BusinessContact(name = fake.name(), last_name = fake.last_name(), email = fake.email(), phone_number = fake.phone_number() company_name = fake.company(), job = fake.job(), business_number = fake.phone_number())
        
     return contacts                           
 
