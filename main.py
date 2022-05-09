@@ -29,33 +29,18 @@ class BusinessContact(BaseContact):
     def contact(self):
         return(f"Wybieram numer {self.business_number} i dzwonię do {self.name} {self.last_name}.")
 
-def create_contacts(x, y):
+def create_contacts(type, count):
+    
+    contacts =[]
+    if type == 1:
+        for i in range(0, count):
+           contacts.append(BaseContact(name = fake.name(), last_name = fake.last_name(), email = fake.email(), phone_number = fake.phone_number())
 
-    if x == 1:
-        base_contacts = {}
-        for i in range(0, y):
-            base_contacts[i] = {}
-            base_contacts[i]['name'] = fake.name() 
-            base_contacts[i]['last_name'] = fake.last_name() 
-            base_contacts[i]['email'] = fake.email()
-            base_contacts[i]['phone_number'] = fake.phone_number()
-        
-        print("Base contacts: ")
-        print(base_contacts)
-
-    elif x == 2:
-        business_contact = {}
-        for i in range(0, y):
-            business_contact[i] = {}
-            business_contact[i]['name'] = fake.name()
-            business_contact[i]['last_name'] = fake.last_name()
-            business_contact[i]['email'] = fake.email()
-            business_contact[i]['company'] = fake.company()
-            business_contact[i]['job'] = fake.job()
-            business_contact[i]['phone_number'] = fake.phone_number()
-        
-        print("Business contacts: ")
-        print(business_contact)
+    elif type == 2:
+        for i in range(0, count):
+            contactappend(BusinessContact(name = fake.name(), last_name = fake.last_name(), email = fake.email(), company_name = fake.company(), job = fake.job(), phone_number = fake.phone_number())
+       
+    return contacts                           
 
 elizabeth = BaseContact(name = 'Elizabeth', last_name = 'T. Stone', email = 'ElizabethStone@dayrep.com', phone_number = '941-456-1600')
 elizabeth = BusinessContact(name = 'Elizabeth', last_name = 'T. Stone', email = 'ElizabethStone@dayrep.com', phone_number = '941-456-1600', company_name = 'Sofa Express', job = 'Gas compressor and gas pumping station operator', business_number = '910-350-8373')
