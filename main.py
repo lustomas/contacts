@@ -9,7 +9,9 @@ class BaseContact:
         self.phone_number = phone_number
         self.email = email
 
-  
+    def __str__(self):
+        return f'{self.name} {self.last_name} {self.phone_number} {self.email}'
+
     def _contact(self):
         return(f"Wybieram numer {self.phone_number} i dzwonię do {self.name} {self.last_name}.")
 
@@ -26,21 +28,24 @@ class BusinessContact(BaseContact):
         self.job = job
         self.business_number = business_number
 
+    def __str__(self):
+        return f'{self.name} {self.last_name} {self.phone_number} {self.email} {self.company_name} {self.job} {self.business_number}'
+
     def contact(self):
         return(f"Wybieram numer {self.business_number} i dzwonię do {self.name} {self.last_name}.")
 
 def create_contacts(type, count):
-    
+        
     contacts =[]
     if type == 1:
-        for i in range(0, count):
-           contacts.append(BaseContact(name = fake.name(), last_name = fake.last_name(), email = fake.email(), phone_number = fake.phone_number())
+        for i in range(count):
+            contacts.append(BaseContact(name = fake.name(), last_name = fake.last_name(), email = fake.email(), phone_number = fake.phone_number()))
 
     elif type == 2:
-        for i in range(0, count):
-            contacts.append(BusinessContact(name = fake.name(), last_name = fake.last_name(), email = fake.email(), phone_number = fake.phone_number() company_name = fake.company(), job = fake.job(), business_number = fake.phone_number())
-       
-    return contacts                           
+        for i in range(count):
+            contacts.append(BusinessContact(name = fake.name(), last_name = fake.last_name(), email = fake.email(), phone_number = fake.phone_number(), company_name = fake.company(), job = fake.job(), business_number = fake.phone_number()))
+        
+    return contacts
 
 elizabeth = BaseContact(name = 'Elizabeth', last_name = 'T. Stone', email = 'ElizabethStone@dayrep.com', phone_number = '941-456-1600')
 elizabeth = BusinessContact(name = 'Elizabeth', last_name = 'T. Stone', email = 'ElizabethStone@dayrep.com', phone_number = '941-456-1600', company_name = 'Sofa Express', job = 'Gas compressor and gas pumping station operator', business_number = '910-350-8373')
