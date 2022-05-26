@@ -34,19 +34,6 @@ class BusinessContact(BaseContact):
     def contact(self):
         return(f"Wybieram numer {self.business_number} i dzwonię do {self.name} {self.last_name}.")
 
-def create_contacts(type, count):
-        
-    contacts =[]
-    if type == 1:
-        for i in range(count):
-            contacts.append(BaseContact(name = fake.name(), last_name = fake.last_name(), email = fake.email(), phone_number = fake.phone_number()))
-
-    elif type == 2:
-        for i in range(count):
-            contacts.append(BusinessContact(name = fake.name(), last_name = fake.last_name(), email = fake.email(), phone_number = fake.phone_number(), company_name = fake.company(), job = fake.job(), business_number = fake.phone_number()))
-        
-    return contacts
-
 elizabeth = BaseContact(name = 'Elizabeth', last_name = 'T. Stone', email = 'ElizabethStone@dayrep.com', phone_number = '941-456-1600')
 elizabeth = BusinessContact(name = 'Elizabeth', last_name = 'T. Stone', email = 'ElizabethStone@dayrep.com', phone_number = '941-456-1600', company_name = 'Sofa Express', job = 'Gas compressor and gas pumping station operator', business_number = '910-350-8373')
 
@@ -68,5 +55,22 @@ for name in name_list:
     print(name.contact())
     print(name._contact())
     print(name.label_length)
+    print(name)
 
-create_contacts(2, 2)
+def create_contacts(type, count):
+                
+    for i in range(count):
+        contacts = []
+        if type==1:
+            print(BaseContact(name = fake.name(), last_name = fake.last_name(), email = fake.email(), phone_number = fake.phone_number()))
+            contacts.append(BaseContact(name = fake.name(), last_name = fake.last_name(), email = fake.email(), phone_number = fake.phone_number()))
+            
+    for i in range(count):
+        contacts = []
+        if type==2:
+            print(BusinessContact(name = fake.name(), last_name = fake.last_name(), email = fake.email(), phone_number = fake.phone_number(), company_name = fake.company(), job = fake.job(), business_number = fake.phone_number()))
+            contacts.append((BusinessContact(name = fake.name(), last_name = fake.last_name(), email = fake.email(), phone_number = fake.phone_number(), company_name = fake.company(), job = fake.job(), business_number = fake.phone_number())))
+                
+    return contacts
+
+create_contacts(2,5)
