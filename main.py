@@ -73,4 +73,4 @@ def create_contacts(type, count):
                 
     return contacts
 
-create_contacts(2,5)
+contact_list = create_contacts(2,5)
